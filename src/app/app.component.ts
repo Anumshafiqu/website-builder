@@ -115,6 +115,50 @@ export class AppComponent {
     { image: 'https://preview.brand.page/preview/template/bb311ba6-d5cd-436d-8aa3-2eb7886ce45b/logo-template/6a4ffe67-6141-4b0a-97e0-9989b0c7cc72?deviceType=brandsite-desktop&logoTemplateVersion=1'},
     { image: 'https://preview.brand.page/preview/template/2ba20b5f-5121-455a-b9d5-9f8eacbc37c7/logo-template/ab3254e2-e98b-4c20-9b3f-1b02f41152d3?deviceType=brandsite-desktop&logoTemplateVersion=2'},
     { image: 'https://preview.brand.page/preview/template/20034dee-5b31-43d0-a446-8031a7a577ef/logo-template/3f1aff3a-5e34-4766-9325-10ad913e6cea?deviceType=brandsite-desktop&logoTemplateVersion=1'}
-  ];    
+  ]; 
+  
+  // testimonialss
+  testimonials = [
+    {
+      text: "I am so glad that I came across this website! I am in the middle of creating my business from the bottom up. This company has made the first steps extremely easy for me and I just know that it will continue to support me throughout my journey.",
+      name: "Tamara Brown",
+      stars: [1, 2, 3, 4, 5]
+    },
+    {
+      text: "Made my logo and banner decision a lot easier and not having to pay someone hundreds is awesome!",
+      name: "GuysDetailing",
+      stars: [1, 2, 3, 4, 5]
+    },
+    {
+      text: "Great suggestions. Very easy to use. I got many alternative solutions for the business logo. Also, it was very easy to change colors, font, and more while creating the logo. Very affordable",
+      name: "Glenda",
+      stars: [1, 2, 3, 4, 5]
+    },
+    {
+      text: "Tons of template options for logo creation. Easy to use process for creating a logo.",
+      name: "Pil Hill Painting co",
+      stars: [1, 2, 3, 4, 5]
+    },
+    {
+      text: "I was surprised at how user friendly it was, and being a first-time business owner I wasn't overwhelmed at all  because now I've signed up to the plan including website development. I have everything I need at my fingertips to add  my logo to my website, business cards, packaging, and stationery. I love it.",
+      name: "John Doe",
+      stars: [1, 2, 3, 4, 5]
+    },
+    {
+      text: "What was great was the many options that I had to create my logo. Simple to create a professional logo in a matter  of seconds. I highly recommend for anyone to experience the opportunity to create a professional logo—look no further.",
+      name: "Sarah Lee",
+      stars: [1, 2, 3, 4, 5]
+    },
+    {
+      text: "Extremely helpful! So many templates and fonts to choose from — making design much simpler.",
+      name: "John Doe",
+      stars: [1, 2, 3, 4, 5]
+    },
+    {
+      text: "I am not very tech-savvy, and your staff has been so helpful. They have answered all my questions and were so gracious. I love the design of my logo and my business cards. I'm beyond happy with my experience, and I will tell everyone I know about you.",
+      name: "Sarah Lee",
+      stars: [1, 2, 3, 4, 5]
+    }
+  ];
 
 }

@@ -7,6 +7,7 @@ import { MenubarModule } from 'primeng/menubar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MegaMenuModule } from 'primeng/megamenu';
 import { MegaMenu } from 'primeng/megamenu';
+import { CarouselModule } from 'primeng/carousel';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { MegaMenu } from 'primeng/megamenu';
     MenubarModule,
     BrowserAnimationsModule,
     MegaMenuModule,
-    MegaMenu
+    MegaMenu,
+    CarouselModule
   ],
   providers: [],
   bootstrap: [AppComponent]

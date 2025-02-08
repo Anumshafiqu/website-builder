@@ -291,7 +291,14 @@ img:hover {
     font-size: 18px;
     font-family: sans-serif;
 }
-
+.testimonial-1{
+    width: 50%;
+}
+@media (max-width:1000px) {
+.testimonial-1{
+    width: 100%;
+}
+}
 @media (max-width:1000px) {
     .image {
         height: 580px;
@@ -316,7 +323,136 @@ img:hover {
     .preview-images {
         position: absolute;
         right: 15%;
+    
+}
+.card-2{
+    font-family: sans-serif;
+}
+.testimonial-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.pi-star {
+    font-size: 1.2rem;
+    margin: 2px;
+}
+
+/* Customizing the carousel indicator bar */
+.p-carousel-indicators {
+    display: flex;
+    justify-content: center;
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.p-carousel-indicator button {
+    width: 30px;
+    height: 5px;
+    background-color: lightgray;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.p-carousel-indicator.p-highlight button {
+    background-color: black;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+  }
+  
+  .testimonial-heading {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
+  
+  .testimonial-box {
+    max-width: 600px;
+    margin: auto;
+  }
+  
+  .testimonial-text {
+    font-size: 18px;
+    color: #333;
+    font-weight: 400;
+    text-align: center;
+    line-height: 1.6;
+  }
+  
+  .testimonial-name {
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  
+  .stars span {
+    color: gold;/* Background color */
+    .bg-light {
+      background-color: #f8f9fa !important;
     }
+    
+    /* Icon circle */
+    .icon-circle i{
+      width: 60px;
+      height: 60px;
+      background-color: #3b82f6; /* Blue color */
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      font-size: 24px;
+    }
+    
+    /* Text styles */
+    .text-muted {
+      font-size: 14px;
+      line-height: 1.6;
+    }
+    
+    .text-primary {
+      color: #3b82f6 !important;
+      font-size: 16px;
+    } 
 
-
+    
+}
+.publish-website{
+    margin-top: 100px;
+}
+/* Hero Section */
+.hero-section {
+    background-color: #111;
+    padding: 60px 20px;
+  }
+  
+  .search-box {
+    width: 400px;
+    max-width: 90%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  /* Designs Section */
+  .designs-section {
+    background-color: #f8f9fa;
+    padding: 60px 20px;
+  }
+  
+  .industry-links a {
+    display: block;
+    text-decoration: none;
+    font-size: 18px;
+    margin: 5px 0;
+  }
+  
+  .industry-links a:hover {
+    text-decoration: underline;
+  }
+  
+  
 }
