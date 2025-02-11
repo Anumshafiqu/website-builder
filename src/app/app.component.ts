@@ -1,6 +1,15 @@
 import { Component } from '@angular/core';
-import { MegaMenuItem } from 'primeng/api';
+import { MegaMenuItem} from 'primeng/api';
 import { MegaMenu } from 'primeng/megamenu';
+interface MenuItem {
+  label: string;
+  children?: MenuItem[];
+}
+
+interface LogoCategory {
+  name: string;
+  subcategories?: string[];
+}
 
 @Component({
   selector: 'app-root',
@@ -161,4 +170,112 @@ export class AppComponent {
     }
   ];
 
+
+
+
+
+
+
+
+
+
+
+  mobileMenuOpen = false;
+  menuItems = [
+    { name: 'Logos', open: false },
+    { name: 'Business Cards', open: false },
+    { name: 'Websites', open: false },
+    { name: 'AI', open: false }
+  ];
+
+  toggleMobileMenu() {
+    this.mobileMenuOpen = !this.mobileMenuOpen;
+  }
+
+  toggleDropdown(item: any) {
+    item.open = !item.open;
+  }
+
+
+  isMenuOpen = false; // Controls visibility of the menu
+
+  // Define the main menu structure
+  mainMenu: MenuItem[] = [
+    { label: 'Logos', children: [{ label: '3D' }, { label: 'Minimal' },{ label: 'Animal' },
+      { label: 'Camera' },{ label: 'Car' },
+      { label: 'Car' },
+      { label: 'Circle' },{ label: 'Crown' },
+      { label: 'Eagle' }] },
+    { label: 'Business Cards' },
+    { label: 'Social' },
+    { 
+      label: 'Websites',
+      children: [
+        { label: 'View Child Pages Of Websites' },
+        { label: 'Website Builder' },
+        { label: 'Link in Bio' },
+        { label: 'Digital Business Cards' },
+        { label: 'Domain Names' }
+      ]
+    },
+    { 
+      label: 'More', 
+      children: [
+        { label: 'Popular Keywords' }, 
+        { label: 'Top Industries' },
+        { label: 'Email Signatures' },
+        { label: 'Letterheads' },
+        { label: 'Posters' },
+        { label: 'Flyers' },
+        { label: 'Invoices' },
+        { label: 'Menus' },
+        { label: 'Postcards' },
+        { label: 'Gift Certificates' },
+        { label: 'Invitations' },
+        { label: 'Thank You Cards' },
+        { label: 'Videos' },
+        { label: 'Animations' },
+        { label: 'T-Shirts' },
+        { label: 'QR Codes' },
+        { label: 'Presentations' }
+      ] 
+    },
+    { 
+      label: 'AI',
+      children: [
+        { label: 'AI Logo Generator' },
+        { label: 'AI Background Remover' },
+        { label: 'AI Business Name Generator' },
+        { label: 'AI Domain Name Generator' },
+        { label: 'AI Website Generator' },
+        { label: 'AI Business Card Generator' },
+        { label: 'AI Poster Generator' },
+        { label: 'AI Flyer Generator' },
+        { label: 'AI Link In Bio Generator' }
+      ]
+    }
+  ];
+
+  currentMenu: MenuItem[] = this.mainMenu;
+  menuStack: MenuItem[][] = [];
+
+  toggleMenu() {
+    this.isMenuOpen = !this.isMenuOpen; // Show or hide menu
+  }
+
+  navigateTo(item: MenuItem) {
+    if (item.children) {
+      this.menuStack.push(this.currentMenu); // Save previous menu
+      this.currentMenu = item.children; // Show sub-menu
+    }
+  }
+
+  goBack() {
+    if (this.menuStack.length) {
+      this.currentMenu = this.menuStack.pop()!; // Go back to previous menu
+    }
+  }
+
+
+ 
 }

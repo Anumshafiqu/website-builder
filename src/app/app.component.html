@@ -1,27 +1,177 @@
+
+
+<!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" (click)="toggleMobileMenu()">
+      <span>&#9776;</span>
+    </button>
+    <a class="navbar-brand" href="#">
+       DESIGN.COM
+    </a>
+    
+    <div class="collapse navbar-collapse d-none d-lg-block">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item dropdown" *ngFor="let item of menuItems">
+          <a class="nav-link dropdown-toggle" href="#" (click)="toggleDropdown(item)" role="button">
+            {{ item.name }}
+          </a>
+          <ul class="dropdown-menu" *ngIf="item.open">
+            <li><a class="dropdown-item" href="#">Submenu 1</a></li>
+            <li><a class="dropdown-item" href="#">Submenu 2</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="mobile-menu" *ngIf="mobileMenuOpen">
+  <div class="mobile-menu-content">
+    <div class="d-flex text-center justify-content-center align-items-end">
+      <p class="ml-5 mt-2">Menu</p>
+      <button class="close-btn ms-auto" (click)="toggleMobileMenu()">&times;</button>
+    </div>
+    <ul>
+      <li *ngFor="let item of menuItems" class="nav-link p-1">
+        <a href="#"  (click)="toggleDropdown(item)" class="text-decoration-none text-dark fw-bold">{{ item.name }}</a>
+      </li>
+    </ul>
+  </div>
+</div> -->
+
+
+<!-- <nav class="navbar">
+  <div class="menu-icon" (click)="toggleMenu()">☰</div>
+</nav>
+<div class="menu-container" *ngIf="isMenuOpen">
+  <div *ngIf="menuStack.length > 0" class="menu-header">
+    <button (click)="goBack()">← Back</button>
+  </div>
+  <ul>
+    <li *ngFor="let item of currentMenu" (click)="navigateTo(item)">
+      {{ item.label }}
+      <span *ngIf="item.children">›</span>
+    </li>
+  </ul>
+</div> -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
   <div class="container">
-    <!-- Brand -->
     <a class="navbar-brand" href="#">DESIGN.COM</a>
-
-    <!-- Navbar Toggler -->
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
     </button>
-
-    <!-- Navbar Links -->
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
-        <!-- Logo Dropdown -->
         <li class="nav-item dropdown position-static">
           <a class="nav-link dropdown-toggle fw-bold mx-2" href="#" role="button" data-bs-toggle="dropdown">
             Logo
           </a>
-
-          <!-- Dropdown Full Width -->
           <div class="dropdown-menu w-100 mega-menu">
             <div class="container mx-8">
               <div class="row">
-                <!-- Popular Keywords -->
                 <div class="col-md-6">
                   <h6 class="fw-bold">Popular Keywords</h6>
                   <div class="dropdown-columns">
@@ -30,8 +180,6 @@
                     </ul>
                   </div>
                 </div>
-
-                <!-- Top Industries -->
                 <div class="col-md-6">
                   <h6 class="fw-bold">Top Industries</h6>
                   <div class="dropdown-columns">
@@ -51,7 +199,6 @@
           <div class="dropdown-menu w-100 mega-menu menu-item">
             <div class="container">
               <div class="row">
-                <!-- Popular Keywords -->
                 <div class="col-md-6">
                   <h6 class="fw-bold">Popular Keywords</h6>
                   <div class="dropdown-columns">
@@ -60,8 +207,6 @@
                     </ul>
                   </div>
                 </div>
-
-                <!-- Top Industries -->
                 <div class="col-md-6">
                   <h6 class="fw-bold">Top Industries</h6>
                   <div class="dropdown-columns">
@@ -76,7 +221,6 @@
         </li>
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav">
-            <!-- Social Dropdown -->
             <li class="nav-item dropdown position-static">
               <a class="nav-link dropdown-toggle mx-2" href="#" role="button" data-bs-toggle="dropdown">
                 Social
@@ -84,7 +228,6 @@
               <div class="dropdown-menu w-100 mega-menu menu-item">
                 <div class="container">
                   <div class="row">
-                    <!-- Social Media Covers -->
                     <div class="col-md-4">
                       <h6 class="fw-bold">Social Media Covers</h6>
                       <div class="dropdown-columns">
@@ -93,8 +236,6 @@
                         </ul>
                       </div>
                     </div>
-
-                    <!-- Social Media Posts -->
                     <div class="col-md-4">
                       <h6 class="fw-bold">Social Media Posts</h6>
                       <div class="dropdown-columns">
@@ -103,8 +244,6 @@
                         </ul>
                       </div>
                     </div>
-
-                    <!-- Social Media Profile Pictures -->
                     <div class="col-md-4">
                       <h6 class="fw-bold">Social Media Profile Pictures</h6>
                       <div class="dropdown-columns">
@@ -126,7 +265,6 @@
           <div class="dropdown-menu mega-menu menu-item-1">
             <div class="container">
               <div class="row">
-                <!-- Popular Keywords -->
                 <div class="col-md-12">
                   <div class="dropdown-row mt-1">
                     <ul>
@@ -145,7 +283,6 @@
           <div class="dropdown-menu mega-menu menu-item-2">
             <div class="container">
               <div class="row">
-                <!-- Single Column for More Dropdown -->
                 <div class="col-md-12">
                   <div class="dropdown-row mt-1">
                     <ul class="list-unstyled">
@@ -164,7 +301,6 @@
           <div class="dropdown-menu mega-menu menu-item-3">
             <div class="container">
               <div class="row">
-                <!-- Single Column for AI Tools -->
                 <div class="col-md-12">
                   <div class="dropdown-row mt-1">
                     <ul class="list-unstyled">
@@ -179,13 +315,106 @@
   </div>
   </div>
   </li>
-  <div class="justify-content-end">
+
+  </ul>
+  <div class="">
     <button class="btn btn-secondary small fw-medium ms-auto">My account</button>
   </div>
-  </ul>
   </div>
   </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 <!-- hero section -->
 <div class="container-fluid">
@@ -472,5 +701,202 @@
   </div>
 </div>
 </div>
+
+
+
+<div class="container-fluid bg-light py-5">
+  <div class="container">
+    <div class="row">
+      <h2 class="fw-bold text-center">Invoice designs for any industry</h2>
+      <p class="fs-6 fw-medium small text-secondary mt-2 text-center">Design.com has Invoice designs suitable for any industry, simple choose an industry or keyword below.</p>
+      <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <ul>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Beauty</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Business</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Company</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Consultant</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Cyber</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Digital</a></li>
+        </ul>
+      </div>
+      <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <ul>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Entrepreneur</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Fashion</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Finance</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Generic</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">It</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Marketing</a></li>
+        </ul>
+      </div>
+      <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
+        <ul>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Modern</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Simple</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Stylish</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Tech</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Technology</a></li>
+          <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Trendy</a></li>
+        </ul>
+    </div>
+    </div>
+  </div>
+</div>
   
+
+
+<footer class="bg-dark text-white py-5">
+  <div class="container-fluid">
+      <div class="row">
+          <!-- Column 1 -->
+          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 ccol-sm-12">
+              <h5 class="ml-4 fs-6 small">Design.com</h5>
+              <ul class="list-unstyled">
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Logo Maker</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Logo Templates</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Logo Ideas</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Business Card Maker</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Free Logos</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Free Business Cards</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Website Builder</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Link in Bio</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Digital Business Cards</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Domain Names</a></li>
+              </ul>
+          </div>
+
+          <!-- Column 2 -->
+          <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
+              <h5 class="fs-6 small">Company</h5>
+              <ul class="list-unstyled">
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">About us</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Contact us</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Legals</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Privacy policy</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Login</a></li>
+              </ul>
+          </div>
+
+          <!-- Column 3 -->
+          <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 col-sm-12">
+              <h5 class="fs-6 small">AI</h5>
+              <ul class="list-unstyled">
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Design Tools</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Name Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Logo Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Background Remover</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Domain Name Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Website Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Card Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Poster Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Flyer Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Link In Bio Generator</a></li>
+              </ul>
+          </div>
+
+          <!-- Column 4 -->
+          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12">
+              <h5>Create Designs</h5>
+              <ul class="list-unstyled">
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Posts</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Stories</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Covers</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Events</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Ads</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Profile Pictures</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Posts</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Reels</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Stories</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Profile Pictures</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">LinkedIn Banners</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">LinkedIn Posts</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">LinkedIn Profile Pictures</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Pinterest Pins</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Pinterest Covers</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Pinterest Profile Pictures</a></li>
+              </ul>
+ 
+          </div>
+
+          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12 mt-4">
+            <ul class="list-unstyled">
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Snapchat Designs</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">SoundCloud Banners</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">SoundCloud Profile Pictures</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">TikTok Videos</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Tumblr Banners</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitch Banners</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitch Profile Pictures</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitter Headers</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitter Posts</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">WhatsApp Stories</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Banners</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Shorts</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Videos</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Channel Icons</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Zoom Backgrounds</a></li>
+            </ul>
+          </div>
+          <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
+            <ul class="list-unstyled mt-4">
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Email Signatures</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Invoices</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Menus</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Flyers</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Postcards</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Invitations</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Thank You Cards</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">T-Shirts</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Videos</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Animations</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Letterheads</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Etsy Banners</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">QR Codes</a></li>
+              <li class="py-1"><a href="#" class="text-white text-decoration-none">Presentations</a></li>
+            </ul>
+          </div>
+          
+              <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
+                <h6>AI Tools</h6>
+                <ul class="list-unstyled">
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Design Tools</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Name Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Logo Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Background Remover</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Domain Name Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Website Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Card Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Poster Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Flyer Generator</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Link In Bio Generator</a></li>
+                </ul>
+              </div>
+        
+          
+          <!-- Column 5 -->
+          <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
+              <h5>Logos</h5>
+              <ul class="list-unstyled">
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Gaming Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Company Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Business Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Brand Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Name Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Car Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Monogram Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">School Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Food Logo</a></li>
+                  <li class="py-1" ><a href="#" class="text-white text-decoration-none">YouTube Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Photography Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Football Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Camera Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Crown Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Sports Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">3D Logo</a></li>
+                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Construction Logo</a></li>
+              </ul>
+          </div>
+      </div>
+  </div>
+</footer>
 
