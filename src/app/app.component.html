@@ -1,5 +1,3 @@
-
-
 <!-- <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" (click)="toggleMobileMenu()">
@@ -154,15 +152,30 @@
 
 
 
-
-
+← Back
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="menu-icon text-white ml-5" (click)="toggleMenu()">☰</div>
+  <div class="menu-container" *ngIf="isMenuOpen">
+    <div class="d-flex ">
+    <button class="close-btn mt-2 ml-auto icon-child-1 small fs-6" (click)="toggleMenu()"><i class="fa fa-close" aria-hidden="true"></i></button>
+  </div>
+    <div *ngIf="menuStack.length > 0" class="menu-header ml-4 fw-bold fs-6">
+      <button (click)="goBack()" class="fw-bold small mt-2"><i class="fa fa-chevron-left" aria-hidden="true"></i></button>
+    </div>
+    <ul class="mt-4">
+      <li *ngFor="let item of currentMenu" (click)="navigateTo(item)" class="icon-child ">
+        {{ item.label }}
+        <span *ngIf="item.children">›</span>
+      </li>
+    </ul>
+  </div>
   <div class="container">
     <a class="navbar-brand" href="#">DESIGN.COM</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
-    </button>
+    </button> -->
+
     <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item dropdown position-static">
@@ -317,9 +330,9 @@
   </li>
 
   </ul>
-  <div class="">
+  <!-- <div class="">
     <button class="btn btn-secondary small fw-medium ms-auto">My account</button>
-  </div>
+  </div> -->
   </div>
   </div>
 </nav>
@@ -450,107 +463,113 @@
 
 <!-- cards -->
 <div class="container-fluid bg-light py-5">
-<div class="container mt-5">
-  <h6 class="text-primary">DESIGN TEMPLATES</h6>
-  <h1 class="fw-bold">
-    Make a website you'll love, instantly.<br />Try it for free.
-  </h1>
-  <p class="text-muted">
-    Whether you're creating a website for your startup, a real estate business, or a gym,
-    we can help you generate a beautiful website in seconds.
-  </p>
+  <div class="container mt-5">
+    <h6 class="text-primary">DESIGN TEMPLATES</h6>
+    <h1 class="fw-bold">
+      Make a website you'll love, instantly.<br />Try it for free.
+    </h1>
+    <p class="text-muted">
+      Whether you're creating a website for your startup, a real estate business, or a gym,
+      we can help you generate a beautiful website in seconds.
+    </p>
 
-  <!-- Grid of Website Templates -->
-  <div class="row">
-    <div class="col-md-4 col-sm-6 mb-4" *ngFor="let template of templates">
-      <div class="card template-card border-0">
-        <img [src]="template.image" class="card-img-top rounded" alt="Template Image">
-        <!-- <div class="card-body">
+    <!-- Grid of Website Templates -->
+    <div class="row">
+      <div class="col-md-4 col-sm-6 mb-4" *ngFor="let template of templates">
+        <div class="card template-card border-0">
+          <img [src]="template.image" class="card-img-top rounded" alt="Template Image">
+          <!-- <div class="card-body">
           <h5 class="card-title">{{ template.title }}</h5>
           <p class="card-text">{{ template.description }}</p>
         </div> -->
+        </div>
       </div>
+    </div>
+
+    <!-- Button -->
+    <div class="text-center mt-4">
+      <button class="btn btn-primary px-4 py-3 fw-bold">See More Designs</button>
     </div>
   </div>
 
-  <!-- Button -->
-  <div class="text-center mt-4">
-    <button class="btn btn-primary px-4 py-3 fw-bold">See More Designs</button>
-  </div>
-</div>
-
-<div class="container mt-8">
-  <!-- Top Section -->
-  <div class="text-start col-lg-8">
-    <h6 class="text-primary fw-bold">HOW IT WORKS</h6>
-    <h1 class="fw-bold">Crafting the perfect website is easy with <span class="text-dark">Design.com</span></h1>
-    <p class="text-secondary fw-medium mt-3 fs-6">In seconds you can create a professional website with our free website
-      builder. Design.com's website builder is easy to use and allows you full customization to get the design you want!
-    </p>
-  </div>
-
-  <!-- Find a Website Template Section -->
-  <div class="row align-items-center mt-5">
-    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
-      <h2 class="fw-bold">Find a website template</h2>
-      <p class="text-muted card-1 mt-3">
-        To get started with our website builder, simply enter your business name and explore a wide array of beautifully
-        designed website templates.
-        Browse through high-quality options to find the ideal style for your online presence.
+  <div class="container mt-8">
+    <!-- Top Section -->
+    <div class="text-start col-lg-8">
+      <h6 class="text-primary fw-bold">HOW IT WORKS</h6>
+      <h1 class="fw-bold">Crafting the perfect website is easy with <span class="text-dark">Design.com</span></h1>
+      <p class="text-secondary fw-medium mt-3 fs-6">In seconds you can create a professional website with our free
+        website
+        builder. Design.com's website builder is easy to use and allows you full customization to get the design you
+        want!
       </p>
-      <button class="btn btn-primary px-4 py-3 fw-bold small">Find A Website</button>
     </div>
 
-    <!-- Image Section -->
-    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 text-end">
-      <div class="">
-        <img src="https://bcassetcdn.com/assets/images/designcom/maker-home-v2/website-maker-1@2x.webp"
-          class="img-fluid rounded">
+    <!-- Find a Website Template Section -->
+    <div class="row align-items-center mt-5">
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <h2 class="fw-bold">Find a website template</h2>
+        <p class="text-muted card-1 mt-3">
+          To get started with our website builder, simply enter your business name and explore a wide array of
+          beautifully
+          designed website templates.
+          Browse through high-quality options to find the ideal style for your online presence.
+        </p>
+        <button class="btn btn-primary px-4 py-3 fw-bold small">Find A Website</button>
+      </div>
+
+      <!-- Image Section -->
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 text-end">
+        <div class="">
+          <img src="https://bcassetcdn.com/assets/images/designcom/maker-home-v2/website-maker-1@2x.webp"
+            class="img-fluid rounded">
+        </div>
       </div>
     </div>
   </div>
-</div>
-<div class="container mt-8">
-  <div class="row mt-8">
-    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
-      <div>
-        <img src="https://bcassetcdn.com/assets/images/designcom/maker-home-v2/website-maker-2@2x.webp" alt=""
-          class="img-fluid rounded">
+  <div class="container mt-8">
+    <div class="row mt-8">
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <div>
+          <img src="https://bcassetcdn.com/assets/images/designcom/maker-home-v2/website-maker-2@2x.webp" alt=""
+            class="img-fluid rounded">
+        </div>
       </div>
-    </div>
-    <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
-      <h2 class="fw-bold text-dark">Customize your website</h2>
-      <p class="text-muted card-2 mt-3 fw-medium fs-6">Once you've selected a template, personalizing it is effortless.
-        Change the colors, fonts, and layout with
-        just a few clicks. Move elements around, add icons, and adjust the text to reflect your brand. Enhance your
-        website with custom backgrounds, unique icons, and tailored content to create a distinctive and engaging
-        site.</p>
-      <div>
-        <button class="btn btn-primary p-3 px-3 fw-bold">Create My Website</button>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="container mt-8">
-  <div class="row mt-8">
-    <div class="col-xxl-7 col-xl-7 col-lg-7 col-md-12 col-sm-12 mt-8">
-      <h2 class="fw-bold text-dark mt-5">Publish your website</h2>
-      <p class="text-muted card-2 mt-3 fw-medium fs-6 w-75">Creating your perfect website was easy, right? Now it's time
-        to
-        publish your creation. With just a click, you can instantly launch your site and start using it. Your customized
-        website is live, helping you connect with your audience effortlessly..</p>
-      <div>
-        <button class="btn btn-primary p-3 px-3 fw-bold">Browser Website Design</button>
-      </div>
-    </div>
-    <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12">
-      <div>
-        <img src="https://bcassetcdn.com/assets/images/designcom/maker-home-v2/website-maker-3@2x.webp" alt=""
-          class="img-fluid rounded">
+      <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12">
+        <h2 class="fw-bold text-dark">Customize your website</h2>
+        <p class="text-muted card-2 mt-3 fw-medium fs-6">Once you've selected a template, personalizing it is
+          effortless.
+          Change the colors, fonts, and layout with
+          just a few clicks. Move elements around, add icons, and adjust the text to reflect your brand. Enhance your
+          website with custom backgrounds, unique icons, and tailored content to create a distinctive and engaging
+          site.</p>
+        <div>
+          <button class="btn btn-primary p-3 px-3 fw-bold">Create My Website</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
+  <div class="container mt-8">
+    <div class="row mt-8">
+      <div class="col-xxl-7 col-xl-7 col-lg-7 col-md-12 col-sm-12 mt-8">
+        <h2 class="fw-bold text-dark mt-5">Publish your website</h2>
+        <p class="text-muted card-2 mt-3 fw-medium fs-6 w-75">Creating your perfect website was easy, right? Now it's
+          time
+          to
+          publish your creation. With just a click, you can instantly launch your site and start using it. Your
+          customized
+          website is live, helping you connect with your audience effortlessly..</p>
+        <div>
+          <button class="btn btn-primary p-3 px-3 fw-bold">Browser Website Design</button>
+        </div>
+      </div>
+      <div class="col-xxl-5 col-xl-5 col-lg-5 col-md-12 col-sm-12">
+        <div>
+          <img src="https://bcassetcdn.com/assets/images/designcom/maker-home-v2/website-maker-3@2x.webp" alt=""
+            class="img-fluid rounded">
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <div class="bg-dark">
   <div class="container">
@@ -581,14 +600,16 @@
     <div class="row mt-8">
       <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 text-white mt-1">
         <h2 class="fw-bold w-75">Create the perfect website</h2>
-        <p class="card-2 mt-4 fw-medium fs-6 text-white">Getting a stunning website that is easy to use doesn't have to be a pain. In fact, you can create the perfect
+        <p class="card-2 mt-4 fw-medium fs-6 text-white">Getting a stunning website that is easy to use doesn't have to
+          be a pain. In fact, you can create the perfect
           design in seconds. All you have to do is use the Design.com website maker to find the perfect design for your
           business. You can then add a custom domain name, contact forms, online payments and more with a few clicks.
         </p>
       </div>
       <div class="col-xxl-6 col-xl-6 col-lg-6 col-md-12 col-sm-12 text-white">
         <h2 class="fw-bold w-75">Get more than just a website design</h2>
-        <p class="card-2 mt-4 fw-medium fs-6 text-white">Looking to complete your marketing collateral checklist? Design.com gives you more than just an awesome
+        <p class="card-2 mt-4 fw-medium fs-6 text-white">Looking to complete your marketing collateral checklist?
+          Design.com gives you more than just an awesome
           website. With easy-to-use design tools, you can ensure your brand consistently looks its best across web,
           social and print. Try our social media and print design tools today - you'll find everything you need to
           launch your business at Design.com.</p>
@@ -607,19 +628,19 @@
   <h1 class="fw-bold mt-4">These businesses loved <br> Design.com</h1>
 
   <p-carousel [value]="testimonials" [numVisible]="1" [numScroll]="1" [circular]="true" [autoplayInterval]="3000"
-      [showNavigators]="false" [showIndicators]="true" class="text-center">
-      <ng-template pTemplate="item" let-item>
-          <div class="testimonial-box mt-5">
-              <p class="text-muted px-4 testimonial-text">
-                  {{ item.text }}
-              </p>
-              <h6 class="fw-bold mt-3">{{ item.name }}</h6>
-              <div class="text-warning">
-                  <i class="pi pi-star" *ngFor="let star of item.stars"></i>
-                  ⭐⭐⭐⭐⭐
-              </div>
-          </div>
-      </ng-template>
+    [showNavigators]="false" [showIndicators]="true" class="text-center">
+    <ng-template pTemplate="item" let-item>
+      <div class="testimonial-box mt-5">
+        <p class="text-muted px-4 testimonial-text">
+          {{ item.text }}
+        </p>
+        <h6 class="fw-bold mt-3">{{ item.name }}</h6>
+        <div class="text-warning">
+          <i class="pi pi-star" *ngFor="let star of item.stars"></i>
+          ⭐⭐⭐⭐⭐
+        </div>
+      </div>
+    </ng-template>
   </p-carousel>
 </div>
 <div class="container-fluid bg-light py-5">
@@ -639,7 +660,7 @@
         </div>
         <h5 class="fw-bold mt-3">Start searching</h5>
         <p class="text-muted fs-6 fw-medium">
-          To find website templates related to your business enter your business name – we’ll instantly 
+          To find website templates related to your business enter your business name – we’ll instantly
           show you designs relevant to your business. You can browse the website designs and choose one you like.
         </p>
       </div>
@@ -651,7 +672,7 @@
         </div>
         <h5 class="fw-bold mt-3">Refine your search</h5>
         <p class="text-muted fs-6 fw-medium">
-          Can't see a website design that stands out? No problem, you can adjust your search by entering 
+          Can't see a website design that stands out? No problem, you can adjust your search by entering
           related keywords to get more customized results.
         </p>
       </div>
@@ -663,7 +684,7 @@
         </div>
         <h5 class="fw-bold mt-3">Edit your website</h5>
         <p class="text-muted fs-6 fw-medium">
-          Once you’ve found a website design you love, you can customize the colors, fonts and layout. 
+          Once you’ve found a website design you love, you can customize the colors, fonts and layout.
           You can add more flair with images, videos, shapes and gradient colors.
         </p>
       </div>
@@ -675,7 +696,7 @@
         </div>
         <h5 class="fw-bold mt-3">Publish your website</h5>
         <p class="text-muted fs-6 fw-medium">
-          When you’re finished crafting the perfect website, you can publish your website for the world 
+          When you’re finished crafting the perfect website, you can publish your website for the world
           to see. You’ll get a unique URL which you can promote on business cards, social media and more.
         </p>
       </div>
@@ -685,21 +706,22 @@
 
 <div class="bg-dark">
 
-<div class="container">
-  <div class="row">
-    <div class="colxxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 text-white text-center">
-      <h2 class="fw-bold mt-5">Get started with Design.com's website builder</h2>
-      <p class="small fw-medium fs-6 mt-2">Enter your business name and we'll start creating websites in seconds...</p>
-      <div class="my-5 mt-4 d-flex justify-content-center align-items-center">
-        <div class="input-container w-7 d-flex flex-column flex-sm-row gap-2">
-          <input pInputText type="text" placeholder="Enter Your Business Name"
-            class="business-input fw-medium text-gray-100 p-3 w-100" />
-          <button pButton label="Start Now" class="start-btn btn btn-primary fw-bold small">Generate Website</button>
+  <div class="container">
+    <div class="row">
+      <div class="colxxl-12 col-xl-12 col-lg-12 col-md-12 col-sm-12 text-white text-center">
+        <h2 class="fw-bold mt-5">Get started with Design.com's website builder</h2>
+        <p class="small fw-medium fs-6 mt-2">Enter your business name and we'll start creating websites in seconds...
+        </p>
+        <div class="my-5 mt-4 d-flex justify-content-center align-items-center">
+          <div class="input-container w-7 d-flex flex-column flex-sm-row gap-2">
+            <input pInputText type="text" placeholder="Enter Your Business Name"
+              class="business-input fw-medium text-gray-100 p-3 w-100" />
+            <button pButton label="Start Now" class="start-btn btn btn-primary fw-bold small">Generate Website</button>
+          </div>
         </div>
       </div>
     </div>
   </div>
-</div>
 </div>
 
 
@@ -708,7 +730,8 @@
   <div class="container">
     <div class="row">
       <h2 class="fw-bold text-center">Invoice designs for any industry</h2>
-      <p class="fs-6 fw-medium small text-secondary mt-2 text-center">Design.com has Invoice designs suitable for any industry, simple choose an industry or keyword below.</p>
+      <p class="fs-6 fw-medium small text-secondary mt-2 text-center">Design.com has Invoice designs suitable for any
+        industry, simple choose an industry or keyword below.</p>
       <div class="col-xxl-4 col-xl-4 col-lg-4 col-md-4 col-sm-4">
         <ul>
           <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Beauty</a></li>
@@ -738,165 +761,164 @@
           <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Technology</a></li>
           <li class="nav-link"><a href="" class="nav-item text-decoration-none fw-bold">Trendy</a></li>
         </ul>
-    </div>
+      </div>
     </div>
   </div>
 </div>
-  
+
 
 
 <footer class="bg-dark text-white py-5">
   <div class="container-fluid">
-      <div class="row">
-          <!-- Column 1 -->
-          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12">
-              <h5 class=" fs-6 small">Design.com</h5>
-              <ul class="list-unstyled">
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Logo Maker</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Logo Templates</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Logo Ideas</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Business Card Maker</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Free Logos</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Free Business Cards</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Website Builder</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Link in Bio</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Digital Business Cards</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Domain Names</a></li>
-              </ul>
-          </div>
-
-          <!-- Column 2 -->
-          <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
-              <h5 class="fs-6 small">Company</h5>
-              <ul class="list-unstyled">
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">About us</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Contact us</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Legals</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Privacy policy</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Login</a></li>
-              </ul>
-          </div>
-
-          <!-- Column 3 -->
-          <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 col-sm-12">
-              <h5 class="fs-6 small">AI</h5>
-              <ul class="list-unstyled">
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Design Tools</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Name Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Logo Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Background Remover</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Domain Name Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Website Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Card Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Poster Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Flyer Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Link In Bio Generator</a></li>
-              </ul>
-          </div>
-
-          <!-- Column 4 -->
-          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12">
-              <h5>Create Designs</h5>
-              <ul class="list-unstyled">
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Posts</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Stories</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Covers</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Events</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Ads</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Profile Pictures</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Posts</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Reels</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Stories</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Profile Pictures</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">LinkedIn Banners</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">LinkedIn Posts</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">LinkedIn Profile Pictures</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Pinterest Pins</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Pinterest Covers</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Pinterest Profile Pictures</a></li>
-              </ul>
- 
-          </div>
-
-          <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12 mt-4">
-            <ul class="list-unstyled">
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Snapchat Designs</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">SoundCloud Banners</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">SoundCloud Profile Pictures</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">TikTok Videos</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Tumblr Banners</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitch Banners</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitch Profile Pictures</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitter Headers</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitter Posts</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">WhatsApp Stories</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Banners</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Shorts</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Videos</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Channel Icons</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Zoom Backgrounds</a></li>
-            </ul>
-          </div>
-          <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
-            <ul class="list-unstyled mt-4">
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Email Signatures</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Invoices</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Menus</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Flyers</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Postcards</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Invitations</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Thank You Cards</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">T-Shirts</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Videos</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Animations</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Letterheads</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Etsy Banners</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">QR Codes</a></li>
-              <li class="py-1"><a href="#" class="text-white text-decoration-none">Presentations</a></li>
-            </ul>
-          </div>
-          
-              <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
-                <h6>AI Tools</h6>
-                <ul class="list-unstyled">
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Design Tools</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Name Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Logo Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Background Remover</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Domain Name Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Website Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Card Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Poster Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Flyer Generator</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Link In Bio Generator</a></li>
-                </ul>
-              </div>
-        
-          
-          <!-- Column 5 -->
-          <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
-              <h5>Logos</h5>
-              <ul class="list-unstyled">
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Gaming Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Company Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Business Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Brand Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Name Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Car Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Monogram Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">School Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Food Logo</a></li>
-                  <li class="py-1" ><a href="#" class="text-white text-decoration-none">YouTube Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Photography Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Football Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Camera Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Crown Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Sports Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">3D Logo</a></li>
-                  <li class="py-1"><a href="#" class="text-white text-decoration-none">Construction Logo</a></li>
-              </ul>
-          </div>
+    <div class="row">
+      <!-- Column 1 -->
+      <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12">
+        <h5 class=" fs-6 small">Design.com</h5>
+        <ul class="list-unstyled">
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Logo Maker</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Logo Templates</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Logo Ideas</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Business Card Maker</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Free Logos</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Free Business Cards</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Website Builder</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Link in Bio</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Digital Business Cards</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Domain Names</a></li>
+        </ul>
       </div>
+
+      <!-- Column 2 -->
+      <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
+        <h5 class="fs-6 small">Company</h5>
+        <ul class="list-unstyled">
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">About us</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Contact us</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Legals</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Privacy policy</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Login</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 col-sm-12">
+        <h5 class="fs-6 small">AI</h5>
+        <ul class="list-unstyled">
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Design Tools</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Name Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Logo Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Background Remover</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Domain Name Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Website Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Card Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Poster Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Flyer Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Link In Bio Generator</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 -->
+      <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12">
+        <h5>Create Designs</h5>
+        <ul class="list-unstyled">
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Posts</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Stories</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Covers</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Events</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Ads</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Facebook Profile Pictures</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Posts</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Reels</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Stories</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Instagram Profile Pictures</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">LinkedIn Banners</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">LinkedIn Posts</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">LinkedIn Profile Pictures</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Pinterest Pins</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Pinterest Covers</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Pinterest Profile Pictures</a></li>
+        </ul>
+
+      </div>
+
+      <div class="col-xxl-2 col-xl-2 col-lg-2 col-md-12 col-sm-12 mt-4">
+        <ul class="list-unstyled">
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Snapchat Designs</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">SoundCloud Banners</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">SoundCloud Profile Pictures</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">TikTok Videos</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Tumblr Banners</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitch Banners</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitch Profile Pictures</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitter Headers</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Twitter Posts</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">WhatsApp Stories</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Banners</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Shorts</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Videos</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Channel Icons</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Zoom Backgrounds</a></li>
+        </ul>
+      </div>
+      <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
+        <ul class="list-unstyled mt-4">
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Email Signatures</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Invoices</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Menus</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Flyers</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Postcards</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Invitations</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Thank You Cards</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">T-Shirts</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Videos</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Animations</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Letterheads</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Etsy Banners</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">QR Codes</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Presentations</a></li>
+        </ul>
+      </div>
+
+      <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
+        <h6>AI Tools</h6>
+        <ul class="list-unstyled">
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Design Tools</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Name Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Logo Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Background Remover</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Domain Name Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Website Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Business Card Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Poster Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Flyer Generator</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">AI Link In Bio Generator</a></li>
+        </ul>
+      </div>
+
+
+      <!-- Column 5 -->
+      <div class="col-xxl-1 col-xl-1 col-lg-1 col-md-12 ccol-sm-12">
+        <h5>Logos</h5>
+        <ul class="list-unstyled">
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Gaming Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Company Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Business Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Brand Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Name Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Car Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Monogram Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">School Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Food Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">YouTube Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Photography Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Football Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Camera Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Crown Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Sports Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">3D Logo</a></li>
+          <li class="py-1"><a href="#" class="text-white text-decoration-none">Construction Logo</a></li>
+        </ul>
+      </div>
+    </div>
   </div>
 </footer>
-

@@ -201,13 +201,137 @@ export class AppComponent {
 
   // Define the main menu structure
   mainMenu: MenuItem[] = [
-    { label: 'Logos', children: [{ label: '3D' }, { label: 'Minimal' },{ label: 'Animal' },
-      { label: 'Camera' },{ label: 'Car' },
-      { label: 'Car' },
-      { label: 'Circle' },{ label: 'Crown' },
-      { label: 'Eagle' }] },
-    { label: 'Business Cards' },
-    { label: 'Social' },
+    // { label: 'Logos', children: [{ label: '3D' }, { label: 'Minimal' },{ label: 'Animal' },
+    //   { label: 'Camera' },{ label: 'Car' },
+    //   { label: 'Car' },
+    //   { label: 'Circle' },{ label: 'Crown' },
+    //   { label: 'Eagle' }] },
+
+    { 
+      label: 'Logos', 
+      children: [
+        { 
+          label: 'Popular keywords', 
+          children: [
+            { label: '3D' }, 
+            { label: 'Minimal' }, 
+            { label: 'Modern' }, 
+            { label: 'Luxury' }, 
+            { label: 'Professional' }
+          ] 
+        },
+        { 
+          label: 'Top industries', 
+          children: [
+            { label: 'Animal' }, 
+            { label: 'Camera' }, 
+            { label: 'Car' }, 
+            { label: 'Circle' }, 
+            { label: 'Crown' }, 
+            { label: 'Eagle' }
+          ] 
+        }
+      ] 
+    },
+    { 
+      label: 'Business Cards', 
+      children: [
+        { 
+          label: 'Popular Keywords',
+          children: [
+            { label: '3D' },
+            { label: 'Colorful' },
+            { label: 'Company' },
+            { label: 'Cool' },
+            { label: 'Creative' },
+            { label: 'Cute' },
+            { label: 'Elegant' },
+            { label: 'Luxury' },
+            { label: 'Minimal' },
+            { label: 'Modern' },
+            { label: 'Premium' },
+            { label: 'Professional' },
+            { label: 'Simple' },
+            { label: 'Unique' }
+          ]
+        },
+        { 
+          label: 'Top Industries', 
+          children: [
+            { label: 'View Child Pages Of AI' },
+            { label: 'Popular Keywords' },
+            { label: 'Top Industries' },
+            { label: 'Bakery' },
+            { label: 'Barber' },
+            { label: 'Beauty' },
+            { label: 'Cleaning' },
+            { label: 'Cleaning Service' },
+            { label: 'Construction' },
+            { label: 'Electrician' },
+            { label: 'Handyman' },
+            { label: 'Insurance' },
+            { label: 'Landscaping' },
+            { label: 'Lawyer' },
+            { label: 'Photography' },
+            { label: 'Real Estate' },
+            { label: 'Restaurant' }
+          ]
+        }
+      ]
+    },
+    { 
+      label: 'Social', 
+      children: [
+        { 
+          label: 'Social Media Covers', 
+          children: [
+            { label: 'Facebook Covers' },
+            { label: 'YouTube Banners' },
+            { label: 'Twitch Banners' },
+            { label: 'LinkedIn Banners' },
+            { label: 'Facebook Event Covers' },
+            { label: 'SoundCloud Banners' },
+            { label: 'Twitter Headers' },
+            { label: 'Pinterest Board Covers' },
+            { label: 'Zoom Backgrounds' },
+            { label: 'Etsy Banners' },
+            { label: 'Tumblr Banners' }
+          ]
+        },
+        { 
+          label: 'Social Media Posts', 
+          children: [
+            { label: 'Instagram Posts' },
+            { label: 'Instagram Stories' },
+            { label: 'Facebook Posts' },
+            { label: 'Facebook Stories' },
+            { label: 'Facebook Ads' },
+            { label: 'Twitter Posts' },
+            { label: 'LinkedIn Posts' },
+            { label: 'Pinterest Pins' },
+            { label: 'TikTok Videos' },
+            { label: 'Instagram Reels' },
+            { label: 'YouTube Shorts' },
+            { label: 'YouTube Videos' },
+            { label: 'WhatsApp Stories' },
+            { label: 'Snapchat Designs' }
+          ]
+        },
+        { 
+          label: 'Social Media Profile Pictures', 
+          children: [
+            { label: 'Facebook Profile Pictures' },
+            { label: 'Instagram Profile Pictures' },
+            { label: 'LinkedIn Profile Pictures' },
+            { label: 'Pinterest Profile Pictures' },
+            { label: 'SoundCloud Profile Pictures' },
+            { label: 'Tumblr Profile Pictures' },
+            { label: 'Twitch Profile Pictures' },
+            { label: 'YouTube Channel Icons' }
+          ]
+        }
+      ]
+    },
     { 
       label: 'Websites',
       children: [

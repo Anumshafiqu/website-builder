@@ -403,6 +403,85 @@ h5{
   
 }
 
+/* .navbar {
+    background: #333;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  } */
+  
+  /* Menu Icon */
+  .menu-icon {
+    font-size: 24px;
+    cursor: pointer;
+  }
+  
+  /* Dropdown Menu */
+  .menu-container {
+    position: absolute;
+    top: 0px;
+    /* right: 0; */
+    width: 80%;
+    height: 100vh;
+    background: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    /* z-index: 100; */
+  }
+  
+  /* Menu Header */
+  .menu-header {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  
+  /* Menu List */
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  /* li {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+  } */
+  
+  li span {
+    float: right;
+  }
+  
+  button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+.icon-child{
+    font-size: 15px;
+    font-weight: 400;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: black;
+  }
+  .icon-child-1{
+    font-size: 13px;
+  }
 
 
 
